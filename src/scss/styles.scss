@@ -1,10 +1,19 @@
 //Variable Overrides
 
 $theme-colors: (
-    "primary": #782CD9
+    "primary": #782CD9,
+    "secondary" :#99abbb,
 );
+$lightgray: #f8f8f8;
+$body-bg: $lightgray;
+$font-family-sans-serif: 'Roboto', 'Helvetica', sans-serif;
 
-$body-bg: #EDEDED;
+//Custom Styles
+
+html {
+    min-height:101%; 
+    margin-bottom:1px;
+}
 
 body {
     min-height: 100vh;
@@ -13,7 +22,7 @@ body {
 }
 
 nav .nav-link {
-    color: gray;
+    color: var(--secondary) !important;
 }
 
 main {
@@ -21,7 +30,7 @@ main {
 }
 
 .expand-menu {
-    color: white;
+    color: var(--white);
     text-transform: uppercase;
     font-size: 16px;
     letter-spacing: 2px;
@@ -33,6 +42,7 @@ main {
     background: -webkit-linear-gradient(-45deg, #23d4d8 0%,#782cd9 100%); 
     background: linear-gradient(135deg, #23d4d8 0%,#782cd9 100%); 
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#23d4d8', endColorstr='#782cd9',GradientType=1 ); 
+    border-radius: 0 !important;
 }
 
 .btn {
@@ -40,26 +50,32 @@ main {
     padding: 8px 24px !important;
     text-transform: uppercase !important;
     letter-spacing: 2px !important;
+    &:hover {
+        box-shadow: 0 7px 12px rgba(0,0,0,.15);
+        padding: 8px 24px !important;
+        transform: translateY(-1px);
+    }
 }
 
-.btn:hover {
-    box-shadow: 0 7px 12px rgba(0,0,0,.15);
-    padding: 8px 24px !important;
-    transform: translateY(-1px);
+.card-offsetY {
+    transform: translateY(-30%);
 }
+@media screen and (max-width: 768px) {
+    .card-offsetY {
+        transform: translateY(0);
+    }
+};
 
 footer {
-    padding-bottom: 56px;
     line-height: 2;
     a {
-        color: rgba(255,255,255,.7);
+        color: var(--secondary)
     }
-    a:hover {color: white !important; text-decoration: none;}
-
+    a:hover {
+        color: var(--white);
+        text-decoration: none;
+    }
 }
 
-
-$font-family-sans-serif: 'Roboto', 'Helvetica', sans-serif;
-
 //Bootsrap Sass Files
-@import "node_modules/bootstrap/scss/bootstrap"
+@import "node_modules/bootstrap/scss/bootstrap";
